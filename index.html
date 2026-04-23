@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Елена Аграмакова | Здоровье ручной работы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkplum: '#1A110C',       // Deep warm brown
+                        plumcard: '#261A13',       // Lighter warm brown for cards
+                        accent: '#C89F70',         // Soft golden/beige accent
+                        text: '#FDFBF7',           // Off-white text
+                        muted: '#A8988D',          // Muted warm grey
+                        darkborder: '#3D2A1F'      // Warm border color
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Archivo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: theme('colors.darkplum');
+            color: theme('colors.text');
+            font-feature-settings: "kern" 1, "liga" 1;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .plum-overlay {
+            background-color: rgba(40, 25, 15, 0.7);
+            mix-blend-mode: multiply;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased font-normal text-base sm:text-lg bg-darkplum text-white selection:bg-accent selection:text-white">
+
+    <!-- Hero Section (Always Dark) -->
+    <section id="home" class="relative h-screen flex flex-col justify-center items-center overflow-hidden">
+        <!-- Background Image & Overlays -->
+        <div class="absolute inset-0 z-0 bg-darkplum">
+            <img id="hero-bg" src="images/hero_warm.jpg" alt="Массаж" class="w-full h-full object-cover object-center transition-opacity duration-500 ease-in-out opacity-100">
+            <div class="absolute inset-0 plum-overlay"></div>
+            <!-- Bottom gradient blending into the background -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#1A110C]/60 via-[#261A13]/40 to-darkplum"></div>
+        </div>
+
+        <header id="navbar" class="fixed top-0 left-0 right-0 z-50 pt-8 md:pt-10 pb-4 w-full transition-all duration-500">
+            <div class="max-w-5xl mx-auto px-2 md:px-6 flex justify-center">
+                <nav class="flex flex-wrap justify-center gap-x-4 gap-y-3 md:gap-x-12 text-[9px] sm:text-[10px] md:text-sm uppercase tracking-[0.1em] sm:tracking-[0.2em] font-serif font-bold text-white">
+                    <div class="relative flex flex-col items-center group whitespace-nowrap">
+                        <div id="dot-home" class="w-1.5 h-1.5 rounded-full bg-accent absolute -top-3 md:-top-4 opacity-100 transition-opacity duration-300"></div>
+                        <a href="#home" class="hover:text-accent transition-colors">Главная</a>
+                    </div>
+                    <div class="relative flex flex-col items-center group whitespace-nowrap">
+                        <div id="dot-about" class="w-1.5 h-1.5 rounded-full bg-accent absolute -top-3 md:-top-4 opacity-0 transition-opacity duration-300"></div>
+                        <a href="#about" class="hover:text-accent transition-colors">О мастере</a>
+                    </div>
+                    <div class="relative flex flex-col items-center group whitespace-nowrap">
+                        <div id="dot-services" class="w-1.5 h-1.5 rounded-full bg-accent absolute -top-3 md:-top-4 opacity-0 transition-opacity duration-300"></div>
+                        <a href="#services" class="hover:text-accent transition-colors">Услуги</a>
+                    </div>
+                    <div class="relative flex flex-col items-center group whitespace-nowrap">
+                        <div id="dot-contacts" class="w-1.5 h-1.5 rounded-full bg-accent absolute -top-3 md:-top-4 opacity-0 transition-opacity duration-300"></div>
+                        <a href="#contacts" class="hover:text-accent transition-colors">Контакты</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+
+        <div class="relative z-10 w-full max-w-5xl px-4 flex flex-col items-center text-center mt-12 fade-in visible">
+            <!-- Top Line -->
+            <div class="w-full md:w-[90%] h-[3px] bg-accent mb-10 shadow-[0_0_10px_rgba(200,64,107,0.5)]"></div>
+            
+            <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl text-white tracking-[0.15em] md:tracking-[0.25em] font-medium uppercase ml-2 md:ml-6 mb-6 drop-shadow-lg">
+                Здоровье ручной работы
+            </h1>
+            
+            <p class="text-sm md:text-2xl text-white uppercase tracking-[0.3em] font-sans font-light mb-10 drop-shadow-md">
+                Елена Аграмакова
+            </p>
+
+            <!-- Bottom Line -->
+            <div class="w-full md:w-[90%] h-[3px] bg-accent mb-12 shadow-[0_0_10px_rgba(200,64,107,0.5)]"></div>
+
+            <div class="text-white/80 text-sm md:text-base font-sans tracking-wide space-y-3 mt-4 font-light flex flex-col items-center">
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full">
+                    <a href="https://t.me/AgramakovaEl" target="_blank" class="hover:text-accent transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
+                        <span>Telegram</span>
+                    </a>
+                    <span class="hidden sm:inline border-r border-white/30"></span>
+                    <a href="https://vk.com/id206892220" target="_blank" class="hover:text-accent transition-colors flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M15.023 18.232c-.068 0-1.884-.04-2.613-.674-.385-.331-.703-.895-1.41-1.644-1.1-1.157-1.558-1.303-1.884-1.303-.435 0-.649.199-.814 1.11-.122.651-.237 2.05-.694 2.378-.291.207-1.189.176-3.237-.775-2.793-1.303-5.275-4.49-7.394-8.815-.558-1.127-1.002-2.316-1.312-3.413-.195-.699.278-1.047 1.16-1.077l3.226-.017c.567 0 .841.258 1.026.702 1.34 3.09 3.003 5.4 3.821 5.4.301 0 .524-.225.617-1.05.122-1.085.034-2.327-.47-3.078-.344-.508-.857-.692-1.261-.75-.411-.059-.283-.541.202-.857.653-.425 1.585-.623 2.65-.632.997 0 1.29.083 1.706.184.819.199 1.046 1.058 1.022 2.973-.027 2.478.118 2.697.55 2.697.595 0 1.503-1.139 2.766-3.87.243-.526.541-.855 1.11-.873l3.447-.02c.866 0 1.144.331 1.037.951-.157.94-1.579 3.167-2.637 4.54-.789 1.01-1.052 1.342-.907 1.836.14.478.718 1.018 2.094 2.383 1.624 1.6 2.022 2.27 2.155 2.825.132.553-.131.895-.875.895l-3.32-.016z"/></svg>
+                        <span>ВКонтакте</span>
+                    </a>
+                </div>
+                <a href="tel:+79611978899" class="flex items-center justify-center gap-2 mt-2 hover:text-accent transition-colors">
+                    <svg class="w-4 h-4 pointer-events-none text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <span>8&nbsp;(961)&nbsp;197&#8209;88&#8209;99</span>
+                </a>
+                <div class="mt-2 text-white/50 text-xs sm:text-sm">График работы: вт, чт, сб</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Block -->
+    <div class="border-b border-darkborder bg-plumcard py-20 px-6 mt-16 mb-24">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <p class="text-2xl md:text-4xl text-white/90 font-light leading-relaxed italic font-serif tracking-widest">
+                «Ваше тело заслуживает профессионального диалога»
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 pb-24">
+        
+        <!-- About Section -->
+        <section id="about" class="mb-32 fade-in max-w-5xl mx-auto pt-10">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-3xl md:text-4xl text-white mb-6 uppercase tracking-[0.1em]">О мастере</h2>
+                <div class="w-12 h-1 bg-accent mx-auto"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-10 mb-16 max-w-4xl mx-auto">
+                <!-- Master Photo -->
+                <div class="w-2/3 sm:w-1/2 md:w-1/3 shrink-0 relative group">
+                    <div class="absolute inset-0 bg-accent translate-x-3 translate-y-3 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                    <img src="images/master.jpg" alt="Елена Аграмакова" class="w-full h-auto object-cover border border-darkborder shadow-xl">
+                </div>
+                <!-- Text and Certificates -->
+                <div class="w-full md:w-2/3 flex flex-col justify-center text-center md:text-left">
+                    <p class="text-lg md:text-xl text-muted font-light leading-relaxed font-serif mb-8">
+                        Массаж — это не просто процедура, а искусство восстановления баланса. За каждым движением стоит детальное знание анатомии и желание помочь телу вернуть природную легкость.
+                    </p>
+                    
+                    <!-- Certificates Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-auto">
+                        <img src="images/cert_1.jpg" alt="Сертификат 1" class="w-full h-auto aspect-[4/3] object-cover border border-darkborder cursor-pointer hover:border-accent transition-colors cert-img shadow-md" data-index="0">
+                        <img src="images/cert_2.jpg" alt="Сертификат 2" class="w-full h-auto aspect-[4/3] object-cover border border-darkborder cursor-pointer hover:border-accent transition-colors cert-img shadow-md" data-index="1">
+                        <img src="images/cert_3.jpg" alt="Сертификат 3" class="w-full h-auto aspect-[4/3] object-cover border border-darkborder cursor-pointer hover:border-accent transition-colors cert-img shadow-md" data-index="2">
+                        <img src="images/cert_4.jpg" alt="Сертификат 4" class="w-full h-auto aspect-[4/3] object-cover border border-darkborder cursor-pointer hover:border-accent transition-colors cert-img shadow-md" data-index="3">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Photo Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-16">
+                <div class="aspect-[4/5] bg-plumcard border border-darkborder overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-darkplum/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <img src="images/gallery_1.jpg" alt="Фото 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 md:grayscale md:group-hover:grayscale-0">
+                </div>
+                <div class="aspect-[4/5] bg-plumcard border border-darkborder overflow-hidden relative group mt-0 md:mt-8">
+                    <div class="absolute inset-0 bg-darkplum/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <img src="images/gallery_2.jpg" alt="Фото 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 md:grayscale md:group-hover:grayscale-0">
+                </div>
+                <div class="aspect-[4/5] bg-plumcard border border-darkborder overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-darkplum/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <img src="images/gallery_3.jpg" alt="Фото 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 md:grayscale md:group-hover:grayscale-0">
+                </div>
+                <div class="aspect-[4/5] bg-plumcard border border-darkborder overflow-hidden relative group mt-0 md:mt-8">
+                    <div class="absolute inset-0 bg-darkplum/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <img src="images/gallery_4.jpg" alt="Фото 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 md:grayscale md:group-hover:grayscale-0">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left p-8 bg-plumcard border border-darkborder shadow-2xl max-w-3xl mx-auto">
+                <div>
+                    <h4 class="text-white mb-2 uppercase tracking-widest text-sm font-medium">Индивидуальность</h4>
+                    <p class="text-sm text-muted">Сила нажатия калибруется под запросы тела каждую секунду.</p>
+                </div>
+                <div>
+                    <h4 class="text-white mb-2 uppercase tracking-widest text-sm font-medium">Точечность</h4>
+                    <p class="text-sm text-muted">Деликатный и точный поиск триггеров для снятия зажимов.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="mb-32 fade-in">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-4xl text-white mb-6 uppercase tracking-[0.1em]">Мои услуги</h2>
+                <div class="w-12 h-1 bg-accent mx-auto mb-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-16 gap-y-16">
+                <!-- Group 1 -->
+                <div>
+                    <h3 class="text-sm uppercase tracking-[0.15em] text-accent mb-8 border-b border-darkborder pb-4 font-bold">Классика и оздоровление</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-baseline group">
+                            <div>
+                                <span class="text-white group-hover:text-accent transition-colors font-serif text-lg tracking-wide font-medium">Общий классический массаж</span>
+                                <span class="text-xs text-muted ml-3 tracking-wider">60 МИН</span>
+                            </div>
+                            <span class="text-white font-sans tabular-nums border-b border-dashed border-darkborder group-hover:border-accent pb-1 whitespace-nowrap shrink-0 ml-4">2000 ₽</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group">
+                            <div>
+                                <span class="text-white group-hover:text-accent transition-colors font-serif text-lg tracking-wide font-medium">Оздоровительный массаж</span>
+                                <span class="text-xs text-muted ml-3 tracking-wider">60 МИН</span>
+                            </div>
+                            <span class="text-white font-sans tabular-nums border-b border-dashed border-darkborder group-hover:border-accent pb-1 whitespace-nowrap shrink-0 ml-4">1500 ₽</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group">
+                            <div>
+                                <span class="text-white group-hover:text-accent transition-colors font-serif text-lg tracking-wide font-medium">Спина + ШВЗ</span>
+                                <span class="text-xs text-muted ml-3 tracking-wider">45 МИН</span>
+                            </div>
+                            <span class="text-white font-sans tabular-nums border-b border-dashed border-darkborder group-hover:border-accent pb-1 whitespace-nowrap shrink-0 ml-4">1200 ₽</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group">
+                            <div>
+                                <span class="text-white group-hover:text-accent transition-colors font-serif text-lg tracking-wide font-medium">Ноги + ягодицы</span>
+                                <span class="text-xs text-muted ml-3 tracking-wider">45 МИН</span>
+                            </div>
+                            <span class="text-white font-sans tabular-nums border-b border-dashed border-darkborder group-hover:border-accent pb-1 whitespace-nowrap shrink-0 ml-4">1000 ₽</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Group 2 -->
+                <div>
+                    <h3 class="text-sm uppercase tracking-[0.15em] text-accent mb-8 border-b border-darkborder pb-4 font-bold">Коррекция и эстетика</h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-baseline group">
+                            <div>
+                                <span class="text-white group-hover:text-accent transition-colors font-serif text-lg tracking-wide font-medium">Антицеллюлитный массаж</span>
+                                <span class="text-xs text-muted ml-3 tracking-wider">60 МИН</span>
+                            </div>
+                            <span class="text-white font-sans tabular-nums border-b border-dashed border-darkborder group-hover:border-accent pb-1 whitespace-nowrap shrink-0 ml-4">2000 ₽</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group">
+                            <div class="flex flex-col">
+                                <div>
+                                    <span class="text-white group-hover:text-accent transition-colors font-serif text-lg tracking-wide font-medium">Лимфодренажный массаж</span>
+                                    <span class="text-xs text-muted ml-3 tracking-wider">60 МИН</span>
+                                </div>
+                                <span class="text-[11px] text-accent mt-1 uppercase tracking-widest">+ рекомендации по питанию</span>
+                            </div>
+                            <span class="text-white font-sans tabular-nums border-b border-dashed border-darkborder group-hover:border-accent pb-1 mt-1 whitespace-nowrap shrink-0 ml-4">2000 ₽</span>
+                        </li>
+                        <li class="flex justify-between items-baseline group">
+                            <div class="flex flex-col">
+                                <div>
+                                    <span class="text-white group-hover:text-accent transition-colors font-serif text-lg tracking-wide font-medium">Массаж лица</span>
+                                    <span class="text-xs text-muted ml-3 tracking-wider">45-60 МИН</span>
+                                </div>
+                                <span class="text-[11px] text-accent mt-1 uppercase tracking-widest">Естественное омоложение</span>
+                            </div>
+                            <span class="text-white font-sans tabular-nums border-b border-dashed border-darkborder group-hover:border-accent pb-1 mt-1 whitespace-nowrap shrink-0 ml-4">1000 ₽</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- Contacts Section -->
+        <section id="contacts" class="fade-in">
+            <div class="p-12 md:p-20 border border-darkborder bg-plumcard flex flex-col items-center text-center shadow-2xl">
+                <h2 class="font-serif text-3xl md:text-5xl tracking-widest text-white mb-6 uppercase">Контакты</h2>
+                <div class="w-12 h-1 bg-accent mx-auto mb-10"></div>
+                
+                <p class="text-muted text-base mb-12 max-w-lg leading-relaxed">
+                    Свяжитесь со мной напрямую в любом удобном мессенджере для бронирования сеанса.
+                </p>
+                
+
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center justify-center w-full mb-12">
+                    <a href="https://t.me/AgramakovaEl" target="_blank" class="text-white hover:text-accent border-2 border-white hover:border-accent px-8 py-4 transition-colors uppercase tracking-[0.2em] text-xs font-bold w-full sm:w-auto flex items-center justify-center gap-3">
+                        <svg class="w-5 h-5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg>
+                        <span>Написать в Telegram</span>
+                    </a>
+                    <a href="https://vk.com/id206892220" target="_blank" class="text-white hover:text-accent border-2 border-white hover:border-accent px-8 py-4 transition-colors uppercase tracking-[0.2em] text-xs font-bold w-full sm:w-auto flex items-center justify-center gap-3">
+                        <svg class="w-5 h-5 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M15.023 18.232c-.068 0-1.884-.04-2.613-.674-.385-.331-.703-.895-1.41-1.644-1.1-1.157-1.558-1.303-1.884-1.303-.435 0-.649.199-.814 1.11-.122.651-.237 2.05-.694 2.378-.291.207-1.189.176-3.237-.775-2.793-1.303-5.275-4.49-7.394-8.815-.558-1.127-1.002-2.316-1.312-3.413-.195-.699.278-1.047 1.16-1.077l3.226-.017c.567 0 .841.258 1.026.702 1.34 3.09 3.003 5.4 3.821 5.4.301 0 .524-.225.617-1.05.122-1.085.034-2.327-.47-3.078-.344-.508-.857-.692-1.261-.75-.411-.059-.283-.541.202-.857.653-.425 1.585-.623 2.65-.632.997 0 1.29.083 1.706.184.819.199 1.046 1.058 1.022 2.973-.027 2.478.118 2.697.55 2.697.595 0 1.503-1.139 2.766-3.87.243-.526.541-.855 1.11-.873l3.447-.02c.866 0 1.144.331 1.037.951-.157.94-1.579 3.167-2.637 4.54-.789 1.01-1.052 1.342-.907 1.836.14.478.718 1.018 2.094 2.383 1.624 1.6 2.022 2.27 2.155 2.825.132.553-.131.895-.875.895l-3.32-.016z"/></svg>
+                        <span>Написать ВКонтакте</span>
+                    </a>
+                </div>
+                
+                <div class="pt-8 w-full border-t border-darkborder flex justify-center overflow-hidden">
+                    <a href="tel:+79611978899" class="flex items-center justify-center gap-3 md:gap-4 text-xl sm:text-3xl md:text-5xl font-serif tracking-normal md:tracking-widest text-white hover:text-accent transition-colors whitespace-nowrap">
+                        <svg class="w-5 h-5 md:w-10 md:h-10 text-accent pointer-events-none shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        <span>8&nbsp;(961)&nbsp;197&#8209;88&#8209;99</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[200] bg-darkplum/95 backdrop-blur-sm hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300">
+        <button id="lightbox-close" aria-label="Закрыть" class="absolute top-4 right-4 md:top-6 md:right-6 text-white/50 hover:text-white transition-colors cursor-pointer p-3">
+            <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <button id="lightbox-prev" aria-label="Предыдущий" class="absolute left-1 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors cursor-pointer p-3">
+            <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <button id="lightbox-next" aria-label="Следующий" class="absolute right-1 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors cursor-pointer p-3">
+            <svg class="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+        <img id="lightbox-img" src="" alt="Сертификат крупным планом" class="max-w-[85vw] max-h-[85vh] object-contain border border-darkborder shadow-2xl">
+    </div>
+
+    <!-- Footer Area -->
+    <footer class="bg-darkplum text-white border-t border-darkborder">
+        <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col items-center text-center text-xs text-muted uppercase tracking-[0.2em]">
+            <span class="mb-4 text-accent font-bold">Здоровье ручной работы</span>
+            <span>&copy; 2026 Елена Аграмакова. Все права защищены.</span>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fade-in observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px"
+            });
+
+            document.querySelectorAll('.fade-in').forEach((el) => {
+                observer.observe(el);
+            });
+
+
+            // Lightbox Logic
+            const certImages = [
+                "images/cert_1.jpg",
+                "images/cert_2.jpg",
+                "images/cert_3.jpg",
+                "images/cert_4.jpg"
+            ];
+            let currentCertIndex = 0;
+
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            const certThumbnails = document.querySelectorAll('.cert-img');
+
+            function openLightbox(index) {
+                currentCertIndex = index;
+                lightboxImg.src = certImages[currentCertIndex];
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                // Trigger reflow to apply opacity transition
+                void lightbox.offsetWidth;
+                lightbox.classList.remove('opacity-0');
+                lightbox.classList.add('opacity-100');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('opacity-100');
+                lightbox.classList.add('opacity-0');
+                setTimeout(() => {
+                    lightbox.classList.add('hidden');
+                    lightbox.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+
+            function prevCert(e) {
+                if (e) e.stopPropagation();
+                currentCertIndex = (currentCertIndex === 0) ? certImages.length - 1 : currentCertIndex - 1;
+                lightboxImg.src = certImages[currentCertIndex];
+            }
+
+            function nextCert(e) {
+                if (e) e.stopPropagation();
+                currentCertIndex = (currentCertIndex === certImages.length - 1) ? 0 : currentCertIndex + 1;
+                lightboxImg.src = certImages[currentCertIndex];
+            }
+
+            certThumbnails.forEach(img => {
+                img.addEventListener('click', () => {
+                    openLightbox(parseInt(img.getAttribute('data-index')));
+                });
+            });
+
+            if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+            if (lightboxPrev) lightboxPrev.addEventListener('click', prevCert);
+            if (lightboxNext) lightboxNext.addEventListener('click', nextCert);
+
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (lightbox && !lightbox.classList.contains('hidden')) {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') prevCert();
+                    if (e.key === 'ArrowRight') nextCert();
+                }
+            });
+
+
+            // Sticky Header & Active Dot Logic
+            const header = document.getElementById('navbar');
+            const sections = document.querySelectorAll("section[id]");
+            
+            window.addEventListener("scroll", () => {
+                // Handle Header Background
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-darkplum/95', 'backdrop-blur-md', 'shadow-2xl', 'border-b', 'border-darkborder', 'pt-4');
+                    header.classList.remove('pt-8', 'md:pt-10');
+                } else {
+                    header.classList.remove('bg-darkplum/95', 'backdrop-blur-md', 'shadow-2xl', 'border-b', 'border-darkborder', 'pt-4');
+                    header.classList.add('pt-8', 'md:pt-10');
+                }
+
+                // Handle Active Dot
+                let current = "";
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    // Trigger point slightly offset for smoother transitions
+                    if (window.scrollY >= (sectionTop - 300)) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                document.querySelectorAll('[id^="dot-"]').forEach(dot => {
+                    dot.classList.remove('opacity-100');
+                    dot.classList.add('opacity-0');
+                });
+                
+                if(current) {
+                    const activeDot = document.getElementById('dot-' + current);
+                    if(activeDot) {
+                        activeDot.classList.remove('opacity-0');
+                        activeDot.classList.add('opacity-100');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
